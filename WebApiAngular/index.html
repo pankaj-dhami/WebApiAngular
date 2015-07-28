@@ -1,0 +1,24 @@
+﻿<html ng-app="AngularApp">
+<head>
+    <title>Angular demo</title>
+    <link href="Contents/bootstrap.min.css" rel="stylesheet" />
+    <link href="Contents/Site.css" rel="stylesheet" />
+    <link href="Contents/ngprogress-lite.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div id="progressbar"></div>
+    <h1>Github Viewer</h1>
+    <div ng-view></div>
+</body>
+
+
+</html>
+<script src="Scripts/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.2.4/angular-route.js"></script>
+<script src="Scripts/ngprogress-lite.js"></script>
+<script src="app/app.js"></script>
+<script src="app/Controllers/MainController.js"></script>
+<script src="app/Controllers/UserController.js"></script>
+<script src="app/Services/githubService.js"></script>
