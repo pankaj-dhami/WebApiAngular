@@ -1,7 +1,7 @@
 ﻿(function () {
 
 
-    var myCtrl = function ($scope, myService, $routeParams) {
+    var myCtrl = function ($scope,$http, myService, $routeParams) {
      
         $scope.username = $routeParams.username;
         $scope.repoSortOrder = '-stargazers_count';
@@ -11,24 +11,25 @@
            
         };
 
-        var onUserComplete = function (data) {
-            $scope.user = data;
+        var onUserComplete = function (response) {
+            $scope.user = response.data;
             myService.getRepos($scope.user)
                 .then(onRepos, onError);
 
         };
 
-        var onRepos = function (data) {
-            $scope.repos = data;
+        var onRepos = function (response) {
+            $scope.repos = response.data;
            
             //$location.hash('userDetails');
             //$anchorScroll();
         };
-        myService.getUser($scope.username).then(onUserComplete, onerror);
+         myService.getUser($scope.username).then(onUserComplete, onerror);
+       // $http.get('https://api.github.com/users/' + $scope.username).then(onUserComplete, onerror);
 
     };
     var app = angular.module('AngularApp')
-    app.controller('UserController', ['$scope', 'myService', '$routeParams', myCtrl]);
+    app.controller('UserController', ['$scope', '$http', 'myService', '$routeParams', myCtrl]);
 
 
 }());

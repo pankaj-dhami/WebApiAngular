@@ -7,7 +7,7 @@
             return $http.get('https://api.github.com/users/' + username)
             .then(function (response) {
 
-                return response.data;
+                return response;
             });
         };
 
@@ -16,7 +16,7 @@
             return $http.get(user.repos_url)
                   .then(function (response) {
                       ngProgressLite.done();
-                      return response.data;
+                      return response;
                   });
         };
 

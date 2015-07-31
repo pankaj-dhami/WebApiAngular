@@ -12,6 +12,9 @@
         }).when("/user/:username", {
             templateUrl: "/app/Views/UserDetails.html",
             controller: "UserController"
+        }).when("/newEmployeeForm", {
+            templateUrl: "/app/Views/efTemplate.html",
+            controller: "efController"
         })
 
             .otherwise({ redirectTo: "/main" });

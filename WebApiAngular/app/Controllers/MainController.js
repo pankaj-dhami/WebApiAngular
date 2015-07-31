@@ -23,8 +23,15 @@
             }
             $location.path("/user/" + username);
         };
-        startCountDown();
+       // startCountDown();
+        $scope.addNewEmployee = function () {
+            $location.path("/newEmployeeForm");
+            //var modalInstance = $modal.open({
+            //    templateUrl: "/app/Views/efTemplate.html",
+            //    controller: "efController"
 
+            //});
+        };
 
     };
     var app = angular.module('AngularApp')
